@@ -12,3 +12,6 @@ docker push eranjl/multi-worker:$SHA
 
 kubectl apply -f k8s
 
+kubectl set image deployments/client-deployment client=eranjl/multi-client:$SHA
+kubectl set image deployments/server-deployment server=eranjl/multi-server:$SHA
+kubectl set image deployments/worker-deployment worker=eranjl/multi-worker:$SHA
