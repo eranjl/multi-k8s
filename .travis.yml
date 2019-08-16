@@ -10,7 +10,7 @@ before_install: # commands to run on the container running the installation
   - curl https://sdk.cloud.google.com | bash > /dev/null; # install gcloud sdk
   - source $HOME/google-cloud-sdk/path.bash.inc # add gcloud to the path using the shell script
   - gcloud components update kubectl # gcloud to install kubectl
-  - gcloud auth activate-service-account --key-file service-account.json #authorize the service account
+  - gcloud auth activate-service-account --key-file serviceaccount.json #authorize the service account
   # setting gcloud connection settings
   - gcloud config set project multi-k8s-249919
   - gcloud config set compute/zone us-west1-b
