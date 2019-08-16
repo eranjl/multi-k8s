@@ -20,8 +20,8 @@ before_install: # commands to run on the container running the installation
   # run tests using the dev build
   - docker build -t eranjl/react-test -f ./client/Dockerfile.dev ./client
 
-script:
-  - docker run -e CI=true eranjl/docker-react npm run test
+#script:
+#  - docker run -e CI=true eranjl/docker-react npm run test
 
 deploy:
   provider: script
