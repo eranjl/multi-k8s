@@ -16,7 +16,7 @@ before_install: # commands to run on the container running the installation
   - gcloud config set compute/zone us-west1-b
   - gcloud container clusters get-credentials multi-cluster
   # docker login
-  - echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   # run tests using the dev build
   - docker build -t eranjl/react-test -f ./client/Dockerfile.dev ./client
 
