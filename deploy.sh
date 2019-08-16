@@ -1,9 +1,16 @@
+#echo "building client"
+#docker build -t eranjl/multi-client:latest -t eranjl/multi-client:$SHA -f ./client/Dockerfile ./client
+#echo "building server"
+#docker build -t eranjl/multi-server:latest -t eranjl/multi-server:$SHA -f ./server/Dockerfile ./server
+#echo "building worker"
+#docker build -t eranjl/multi-worker:latest -t eranjl/multi-worker:$SHA -f ./worker/Dockerfile ./worker
+
 echo "building client"
-docker build -t eranjl/multi-client:latest -t eranjl/multi-client:$SHA -f ./client/Dockerfile ./client
+docker build -t eranjl/multi-client:$SHA -f ./client/Dockerfile ./client
 echo "building server"
-docker build -t eranjl/multi-server:latest -t eranjl/multi-server:$SHA -f ./server/Dockerfile ./server
+docker build -t eranjl/multi-server:$SHA -f ./server/Dockerfile ./server
 echo "building worker"
-docker build -t eranjl/multi-worker:latest -t eranjl/multi-worker:$SHA -f ./worker/Dockerfile ./worker
+docker build -t eranjl/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 echo "push client latest"
 docker push eranjl/multi-client:latest
