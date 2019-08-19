@@ -21,11 +21,11 @@ echo "push server ver:$SHA"
 docker push eranjl/multi-worker:$SHA
 
 echo "apply k8s config"
-#kubectl apply -f k8s
+kubectl apply -f k8s
 
 echo "apply client latest image"
-#kubectl set image deployments/client-deployment client=eranjl/multi-client:$SHA
+kubectl set image deployments/client-deployment client=eranjl/multi-client:$SHA
 echo "apply server latest image"
-#kubectl set image deployments/server-deployment server=eranjl/multi-server:$SHA
+kubectl set image deployments/server-deployment server=eranjl/multi-server:$SHA
 echo "apply worker latest image"
-#kubectl set image deployments/worker-deployment worker=eranjl/multi-worker:$SHA
+kubectl set image deployments/worker-deployment worker=eranjl/multi-worker:$SHA
