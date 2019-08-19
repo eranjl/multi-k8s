@@ -1,37 +1,23 @@
-#echo "building client"
-#docker build -t eranjl/multi-client:latest -t eranjl/multi-client:$SHA -f ./client/Dockerfile ./client
-#echo "building server"
-#docker build -t eranjl/multi-server:latest -t eranjl/multi-server:$SHA -f ./server/Dockerfile ./server
-#echo "building worker"
-#docker build -t eranjl/multi-worker:latest -t eranjl/multi-worker:$SHA -f ./worker/Dockerfile ./worker
-
 echo "building client"
-docker build -t eranjl/multi-client -f ./client/Dockerfile ./client
+docker build -t eranjl/multi-client:latest -t eranjl/multi-client:$SHA -f ./client/Dockerfile ./client
 echo "building server"
-docker build -t eranjl/multi-server -f ./server/Dockerfile ./server
+docker build -t eranjl/multi-server:latest -t eranjl/multi-server:$SHA -f ./server/Dockerfile ./server
 echo "building worker"
-docker build -t eranjl/multi-worker -f ./worker/Dockerfile ./worker
+docker build -t eranjl/multi-worker:latest -t eranjl/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
-echo "push client latest"
+echo "push client ver:latest"
 docker push eranjl/multi-client:latest
-echo "push server latest"
+echo "push server ver:latest"
 docker push eranjl/multi-server:latest
-echo "push worker latest"
+echo "push worker ver:latest"
 docker push eranjl/multi-worker:latest
 
-#echo "push client latest"
-#docker push eranjl/multi-client:latest
-#echo "push server latest"
-#docker push eranjl/multi-server:latest
-#echo "push worker latest"
-#docker push eranjl/multi-worker:latest
-
-#echo "push client SHA"
-#docker push eranjl/multi-client:$SHA
-#echo "push server SHA"
-#docker push eranjl/multi-server:$SHA
-#echo "push server SHA"
-#docker push eranjl/multi-worker:$SHA
+echo "push client ver:$SHA"
+docker push eranjl/multi-client:$SHA
+echo "push server ver:$SHA"
+docker push eranjl/multi-server:$SHA
+echo "push server ver:$SHA"
+docker push eranjl/multi-worker:$SHA
 
 echo "apply k8s config"
 #kubectl apply -f k8s
