@@ -1,3 +1,4 @@
+echo "starting deploy script"
 echo "building client"
 docker build -t eranjl/multi-client:latest -t eranjl/multi-client:$SHA -f ./client/Dockerfile ./client
 echo "building server"
