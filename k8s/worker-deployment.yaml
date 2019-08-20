@@ -20,3 +20,9 @@ spec:
               value: redis-cluster-ip-service
             - name: REDIS_PORT
               value: '6379'
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsUser: 1000 
+            runAsGroup: 1000
